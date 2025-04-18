@@ -1,27 +1,13 @@
 // const db = require('../models/index')
-import models from './../models/index'
+import db from '../models/index.js';
 import bcrypt from 'bcrypt'
 
 
-export const index = (req, res) => {
+export const register = (req, res) => {
 
 }
 
-export const store = (req, res) => {
+export const login = (req, res) => {
 
 }
 
-
-export const show = (req, res) => {
-
-}
-
-
-export const update = (req, res) => {
-
-}
-
-
-export const destroy = (req, res) => {
-
-}
