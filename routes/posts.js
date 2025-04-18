@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.get('/', postController.index);
 router.post('/', postController.store);
-router.get('/:postId', postController.show);
-router.put('/:postId', postController.update);
+router.get('/:id', postController.show);
+router.put('/:id', postController.update);
 router.delete('/', postController.destroy);
 
 export default router;
