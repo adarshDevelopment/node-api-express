@@ -6,7 +6,6 @@ const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-// choses the config file based on the environment. like associaive array but with keys for objects
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 

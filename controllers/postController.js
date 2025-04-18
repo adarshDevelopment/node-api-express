@@ -1,5 +1,19 @@
-export const index = (req, res) => {
-    const posts = "Post list";
-    res.json(posts);
+export const index = (req, res)=>{
+
 }
 
+export const show = (req, res)=>{
+    
+}
+
+export const store = (req, res)=>{
+    
+}
+
+export const update = (req, res)=>{
+    
+}
+
+export const destroy = (req, res)=>{
+    
+}
