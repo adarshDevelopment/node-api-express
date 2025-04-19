@@ -1,4 +1,4 @@
-import models from '../models';
+import * as models from '../models/index.js';
 import Validator from 'fastest-validator';
 
 export const index = async (req, res) => {
