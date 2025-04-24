@@ -1,6 +1,7 @@
 import express from 'express';
-import postRoutes from './routes/posts.js';
-import userRoutes from './routes/users.js';
+import postRoutes from './routes/posts.routes.js';
+import userRoutes from './routes/useres.routes.js';
+import imageRoutes from './routes/image.routes.js'
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 
 app.use('/posts', postRoutes);
 app.use('/user', userRoutes);
+app.use('/image', imageRoutes);
 
 
 export default app;
