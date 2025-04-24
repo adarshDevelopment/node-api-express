@@ -35,4 +35,12 @@
     - install bcrypt `npm i bcrypt`
     - use bycrypt.hash function to hash the password.
     - the first argument takes the plaintext password and the second one takes the salt value. its returns a promise so await keyword should be used.
-    - 
+
+## Multer image upload
+    Node js uses middleware to upload images unlike Laravel. 
+    - We first need to return an instance of the multer class by multer({storage: storage, fileFilter: fileFilter})
+    - storage takes two objects, destination and fileName, both of which take function (req, file, cb). the first argument of cb function is error so you can pass null if there are no errors. the second arguents are destination and filename respectively
+    - its the same for fileFilter. you can filter the file by file.mimetype === 'image/jpeg'. 
+    - check multerImage.middleware file for more.
+    - and then you call the factory middleware of the same instance and call the single function to upload a single image. It takes the field name as its only argument.
+  
