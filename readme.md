@@ -43,4 +43,5 @@
     - its the same for fileFilter. you can filter the file by file.mimetype === 'image/jpeg'. 
     - check multerImage.middleware file for more.
     - and then you call the factory middleware of the same instance and call the single function to upload a single image. It takes the field name as its only argument.
+    - for file check and exception handle, you use the multer.single('file') manually and define the thrid parameter 'next' callback function yourself and check for exceptions. the function is asynchronous so you first wait for it to finish and then execute the lines of code below.
   
