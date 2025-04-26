@@ -36,8 +36,20 @@
     - use bycrypt.hash function to hash the password.
     - the first argument takes the plaintext password and the second one takes the salt value. its returns a promise so await keyword should be used.
 
+## JWT package
+11. To use jwt you do the following things
+    - you import jwt package from jsonwebtoken and and sign it with user credentials and a secret key
+    - the jwt.sign method takes two objects as function arguments, the first user credentials and the second the secret key
+  
+12. JWT auth verify
+    - you use the verify method from the jsonwebtoken pacakge to verify the token to make sure that the token has not been tampered with and was created using the same Secret key the one passed in as the second argument.
+    - the first argument of the function takes the token itself and the other one takes the secret key
+    - if found invalid, it throws as exception 
+    - you create a middleware to authenticate the user and call the next() callback function if everything works as expected
+    - 
+
 ## Multer image upload
-    Node js uses middleware to upload images unlike Laravel. 
+12. Node js uses middleware to upload images unlike Laravel. 
     - We first need to return an instance of the multer class by multer({storage: storage, fileFilter: fileFilter})
     - storage takes two objects, destination and fileName, both of which take function (req, file, cb). the first argument of cb function is error so you can pass null if there are no errors. the second arguents are destination and filename respectively
     - its the same for fileFilter. you can filter the file by file.mimetype === 'image/jpeg'. 
@@ -47,6 +59,7 @@
   
 
 ## Database seeding 
+13. Database seeding
     - to crate seeder, type this command:
       - sequelize seed:generate --name category-seeder
     - to run the seed file:
