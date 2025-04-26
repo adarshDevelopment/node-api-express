@@ -9,7 +9,7 @@
 5. install mysql driver using `npm i mysql2`
 6. create modeld and migration using this command
     - sequelize model:generate --name Post --attributes title:string, content:text, imageUrl:string, categoryId:integer, userId:integer
-  
+    - npx sequelize-cli migration:generate --name create-comments -> create without adding fields
 7. Migrate tables:
     - first configure the config file and write your database name
     - run `sequelize db:migrate` command to migrate 
@@ -45,3 +45,15 @@
     - and then you call the factory middleware of the same instance and call the single function to upload a single image. It takes the field name as its only argument.
     - for file check and exception handle, you use the multer.single('file') manually and define the thrid parameter 'next' callback function yourself and check for exceptions. the function is asynchronous so you first wait for it to finish and then execute the lines of code below.
   
+
+## Database seeding 
+    - to crate seeder, type this command:
+      - sequelize seed:generate --name category-seeder
+    - to run the seed file:
+      - sequelize db:seed:all -> run all seeders
+      - sequelize db:seed --seed 20250426092310-categorySeeder.js
+    - to undo a seed
+      - sequelize db:seed:undo -> undos the most recent seed
+
+
+## Associations

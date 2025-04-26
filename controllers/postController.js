@@ -1,3 +1,4 @@
+import category from '../models/category.js';
 import * as models from '../models/index.js';
 import Validator from 'fastest-validator';
 
@@ -25,7 +26,7 @@ export const show = async (req, res) => {
 export const store = async (req, res) => {
     // console.log('user: ', req.user);
     // validate 
-    const { title, content, imageUrl, categoryId = 1 } = req.body;
+    const { title, content, imageUrl, categoryId } = req.body;
     const schema = {
         title: { type: 'string' },
         content: { type: 'string' },
@@ -33,6 +34,11 @@ export const store = async (req, res) => {
     }
     const v = new Validator();
     const errors = v.validate({ title, content, imageUrl }, schema);
+
+    const catId = models.default.Category.findByPk(categoryId);
+    if (!catId) {
+        return res.staus(400).json({ message: 'Invalid category Id' });
+    }
 
     if (errors.length > 0) {
         return res.status(400).json({ errors });
@@ -48,7 +54,7 @@ export const store = async (req, res) => {
 
 export const update = async (req, res) => {
     // validate
-    const { title, content, imageUrl, categoryId = 1, id } = req.body;
+    const { title, content, imageUrl, categoryId, id } = req.body;
     const schema = {
         title: { type: 'string' },
         content: { type: 'string' },
@@ -58,6 +64,11 @@ export const update = async (req, res) => {
     const errors = v.validate({ title, content, imageUrl }, schema);
     if (errors.length > 0) {
         return res.status(400).json({ errors });
+    }
+
+    const catId = models.default.Category.findByPk(categoryId);
+    if (!catId) {
+        return res.status(400).json({ message: 'Invalid category Id' })
     }
 
     console.log('userID: ', req.user.id, ' post id: ', id)
